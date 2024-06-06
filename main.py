@@ -1,17 +1,16 @@
-
-
 from llm_training_Chromadb import ChromaDB_VectorStore
 from no_sql_generator import NoSQLGenerator
 
+# Store Your api-key with file name api_key.txt
 
 api_key_file = "api_key.txt"
 with open(api_key_file, "r") as file:
     api_key = file.read().strip()
 
-deployment_name='LLM_response'
-azure_endpoint="https://testing1234.openai.azure.com/"
+deployment_name='Enter Your Deployment Name on azure'
+azure_endpoint="enter your Azure End Point"
 
-connectionString = "mongodb+srv://genai-user:Figital123@genai.4acr5.mongodb.net/?retryWrites=true&w=majority&appName=GenAI"
+connectionString = "Enter Your DB Connection String With user name and password"
 
 vector_store = ChromaDB_VectorStore()
 nosql_generator = NoSQLGenerator(connectionString)
