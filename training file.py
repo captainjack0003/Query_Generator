@@ -312,55 +312,6 @@ print("Related Documentation:")
 print(type(related_documentation))
 
 
-initial_prompt = "Please help to generate a MONGODB Query ONLY to answer the question. Your response should ONLY be based on the given context and follow the response guidelines and format instructions."
-
-# Initialize the full_prompt with the initial prompt
-full_prompt = initial_prompt.strip() + "\n"
-
-import re
-
-def remove_extra_spaces(input_string):
-    # Remove line breaks
-    no_line_breaks = input_string.replace('\n', ' ').replace('\r', ' ')
-    # Remove multiple spaces
-    no_extra_spaces = re.sub(' +', ' ', no_line_breaks)
-    return no_extra_spaces.strip()
-
-if similar_nosql_questions:
-    full_prompt += "Similar NoSQL Questions:\n"
-    for item in similar_nosql_questions:
-        question = remove_extra_spaces(item['question'])
-        nosql = remove_extra_spaces(item['nosql'])
-        full_prompt += f"Question: {question}\nNoSQL Query: {nosql}\n"
-
-
-# Process related_ddl
-if related_ddl:
-    full_prompt += "Related DDL:\n"
-    for ddl in related_ddl:
-        full_prompt += ddl.strip().replace('\n', ' ').replace('  ', ' ') + "\n"
-
-# Process related_documentation
-if related_documentation:
-    full_prompt += "Related Documentation:\n"
-    for doc in related_documentation:
-        full_prompt += doc.strip().replace('\n', ' ').replace('  ', ' ') + "\n"
-
-# Remove any trailing whitespace and newlines
-full_prompt = full_prompt.strip()
-    
-
-
-import tiktoken
-
-def count_tokens(text):
-    encoding = tiktoken.get_encoding("cl100k_base")
-    tokens = encoding.encode(text)
-    return len(tokens)
-
-print(full_prompt)
-
-print("the token lenght is :", count_tokens(full_prompt))
 # # Remove a piece of training data
 # vector_store.remove_training_data(question_sql_id)
 
