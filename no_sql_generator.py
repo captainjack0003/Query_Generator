@@ -183,37 +183,3 @@ class NoSQLGenerator:
         return len(tokens)
 
 
-# Example usage:
-# connection_string = "your_mongodb_connection_string"
-# nosql_generator = NoSQLGenerator(connection_string)
-# user_question = "Find all transactions above $1000"
-# query = nosql_generator.generate_query(user_question)
-# result_df = nosql_generator.run_query(database_name="your_db", collection_name="transactions", query=query)
-# print(result_df)
-
-# connectionString = "mongodb+srv://genai-user:Figital123@genai.4acr5.mongodb.net/?retryWrites=true&w=majority&appName=GenAI"
-
-
-# vector_store = ChromaDB_VectorStore()
-
-# question=input("Enter Your Question here: ")
-# nosql_generator = NoSQLGenerator(connectionString)
-# similar_nosql_questions = vector_store.get_similar_question_nosql(question)
-# related_ddl = vector_store.get_related_ddl(question)
-# related_documentation = vector_store.get_related_documentation(question)
-
-# prompt=nosql_generator.extract_prompt(similar_nosql_questions,related_ddl,related_documentation,question)
-
-# api_key_file = "api_key.txt"
-# with open(api_key_file, "r") as file:
-#     api_key = file.read().strip()
-
-# deployment_name='LLM_response'
-# azure_endpoint="https://testing1234.openai.azure.com/"
-
-# query=nosql_generator.Azure_llm_Connection(api_key,azure_endpoint,deployment_name,prompt)
-# #query=nosql_generator.extract_mongodb_queries(query)
-# print("The Query Generated is: ",query)
-
-# detax_cards_cursor=nosql_generator.run_query(query)
-# print(list(detax_cards_cursor))
