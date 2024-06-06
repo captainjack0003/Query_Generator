@@ -4,7 +4,7 @@ from llm_training_Chromadb import ChromaDB_VectorStore
 from no_sql_generator import NoSQLGenerator
 
 
-connectionString = "mongodb+srv://genai-user:Figital123@genai.4acr5.mongodb.net/?retryWrites=true&w=majority&appName=GenAI"
+connectionString = "Enter Your DB Connection String with User name and Password"
 
 vector_store = ChromaDB_VectorStore()
 nosql_generator = NoSQLGenerator(connectionString)
